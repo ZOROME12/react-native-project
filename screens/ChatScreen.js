@@ -14,7 +14,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
-const API_URL = 'https://94d406038ac1.ngrok-free.app/api/messages';
+const API_URL = 'https://300c34011010.ngrok-free.app/api/messages';
 
 const { width } = Dimensions.get('window');
 // Memoized Message Item Component
@@ -28,7 +28,7 @@ const MessageItem = React.memo(({ item, userId }) => {
       isUser ? styles.messageRight : styles.messageLeft,
     ]}>
       <View style={[styles.bubble, isUser ? styles.userBubble : styles.adminBubble]}>
-        <Text style={styles.senderName}>{isUser ? 'You' : 'Admin'}</Text>
+        <Text style={styles.senderName}>{isUser ? 'You' : 'EasePrint'}</Text>
         <Text style={styles.messageText}>{item.message}</Text>
         <Text style={styles.timestamp}>{timestamp}</Text>
       </View>
@@ -206,7 +206,7 @@ const ChatScreen = ({ navigation, route }) => {
             <View style={styles.navIconContainer}>
               <MaterialIcons name="home" size={24} color="#777" />
             </View>
-            <Text style={styles.navButtonTextActive}>Home</Text>
+            <Text style={styles.navButtonText}>Home</Text>
           </TouchableOpacity>
           
           <TouchableOpacity
@@ -226,7 +226,7 @@ const ChatScreen = ({ navigation, route }) => {
             <View style={styles.navIconContainer}>
               <MaterialIcons name="chat" size={24} color="#B2183A" />
             </View>
-            <Text style={styles.navButtonText}>Chat</Text>
+            <Text style={styles.navButtonTextActive}>Chat</Text>
           </TouchableOpacity>
         
           <TouchableOpacity
