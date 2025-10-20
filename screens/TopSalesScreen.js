@@ -23,7 +23,11 @@ const TopSalesScreen = ({ navigation }) => {
 
   const fetchTopSales = async () => {
     try {
+<<<<<<< HEAD
       const response = await axios.get("https://300c34011010.ngrok-free.app/api/top-sales"); 
+=======
+      const response = await axios.get("https://56693a1492c4.ngrok-free.app/api/top-sales"); 
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
       setTopSales(response.data); 
     } catch (error) {
       console.error("Error fetching top sales:", error);

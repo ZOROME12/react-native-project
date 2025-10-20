@@ -14,7 +14,11 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
+<<<<<<< HEAD
 const API_URL = 'https://300c34011010.ngrok-free.app/api/messages';
+=======
+const API_URL = 'https://56693a1492c4.ngrok-free.app/api/messages';
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
 
 const { width } = Dimensions.get('window');
 // Memoized Message Item Component

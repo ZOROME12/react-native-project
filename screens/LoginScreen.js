@@ -8,6 +8,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 // NOTE: These icon imports assume an environment like Expo or a linked project
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons'; 
 import axios from 'axios';
+<<<<<<< HEAD
+=======
+import AsyncStorage from '@react-native-async-storage/async-storage';
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
 
 const { width, height } = Dimensions.get('window');
 
@@ -100,6 +104,7 @@ const LoginScreen = ({ navigation }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false); 
 
     // NOTE: This URL is typically replaced with a dynamic variable in a real app
+<<<<<<< HEAD
     const BASE_URL = 'https://300c34011010.ngrok-free.app';
 
     const handleDesignLogin = async () => {
@@ -140,6 +145,56 @@ const LoginScreen = ({ navigation }) => {
             setIsLoggingIn(false);
         }
     };
+=======
+    const BASE_URL = 'https://56693a1492c4.ngrok-free.app';
+
+   
+const handleDesignLogin = async () => {
+  if (!email || !password) {
+    Alert.alert('Missing Info', 'Please enter both email and password.');
+    return;
+  }
+
+  setIsLoggingIn(true);
+
+  try {
+    const response = await axios.post(`${BASE_URL}/api/login`, {
+      email,
+      password,
+    }, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+
+    const { token, user } = response.data;
+
+    // ✅ Save token for later use
+    await AsyncStorage.setItem('sanctum_token', token);
+    await AsyncStorage.setItem('user_name', user.name);
+
+    Alert.alert('Success', `Welcome back, ${user.name}!`);
+
+    // ✅ Navigate to your Home or Dashboard screen
+    navigation.replace('Home');
+
+  } catch (error) {
+    console.log(error.response?.data || error.message);
+    let message = 'Something went wrong. Please try again.';
+
+    if (error.response) {
+      message = error.response.data.message || 'Invalid email or password.';
+    } else if (error.request) {
+      message = 'Network Error: Unable to connect to the server. Check your connection.';
+    }
+
+    Alert.alert('Login Failed', message);
+
+  } finally {
+    setIsLoggingIn(false);
+  }
+};
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
 
     return (
         <SafeAreaView style={styles.safeArea}>

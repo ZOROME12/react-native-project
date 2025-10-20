@@ -22,7 +22,11 @@ const HomeScreen = ({ navigation }) => {
 
   useEffect(() => {
     setIsLoading(true);
+<<<<<<< HEAD
     axios.get('https://300c34011010.ngrok-free.app/api/products')
+=======
+    axios.get('https://56693a1492c4.ngrok-free.app/api/products')
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
       .then(response => {
         setProducts(response.data);
       })
@@ -43,7 +47,11 @@ const HomeScreen = ({ navigation }) => {
     >
       <View style={styles.productImageContainer}>
         <Image
+<<<<<<< HEAD
           source={{ uri: `https://300c34011010.ngrok-free.app/storage/${product.image}` }}
+=======
+          source={{ uri: `https://56693a1492c4.ngrok-free.app/storage/${product.image}` }}
+>>>>>>> 93701a1c84f3373f21f433e5825b1f8a447fdfd7
           style={styles.productImage}
           resizeMode="cover"
         />
